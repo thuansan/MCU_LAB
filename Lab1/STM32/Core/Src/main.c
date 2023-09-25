@@ -89,6 +89,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  char color = 'N';
   while (1)
   {
     /* USER CODE END WHILE */
