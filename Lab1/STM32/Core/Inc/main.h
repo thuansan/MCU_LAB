@@ -58,32 +58,30 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_RED_VERT_Pin GPIO_PIN_5
-#define LED_RED_VERT_GPIO_Port GPIOA
-#define LED_YELLOW_VERT_Pin GPIO_PIN_6
-#define LED_YELLOW_VERT_GPIO_Port GPIOA
-#define LED_GREEN_VERT_Pin GPIO_PIN_7
-#define LED_GREEN_VERT_GPIO_Port GPIOA
-#define a_Pin GPIO_PIN_0
-#define a_GPIO_Port GPIOB
-#define b_Pin GPIO_PIN_1
-#define b_GPIO_Port GPIOB
-#define c_Pin GPIO_PIN_2
-#define c_GPIO_Port GPIOB
-#define LED_RED_HORI_Pin GPIO_PIN_8
-#define LED_RED_HORI_GPIO_Port GPIOA
-#define LED_YELLOW_HORI_Pin GPIO_PIN_9
-#define LED_YELLOW_HORI_GPIO_Port GPIOA
-#define LED_GREEN_HORI_Pin GPIO_PIN_10
-#define LED_GREEN_HORI_GPIO_Port GPIOA
-#define d_Pin GPIO_PIN_3
-#define d_GPIO_Port GPIOB
-#define e_Pin GPIO_PIN_4
-#define e_GPIO_Port GPIOB
-#define f_Pin GPIO_PIN_5
-#define f_GPIO_Port GPIOB
-#define g_Pin GPIO_PIN_6
-#define g_GPIO_Port GPIOB
+#define CLOCK_0_Pin GPIO_PIN_4
+#define CLOCK_0_GPIO_Port GPIOA
+#define CLOCK_1_Pin GPIO_PIN_5
+#define CLOCK_1_GPIO_Port GPIOA
+#define CLOCK_2_Pin GPIO_PIN_6
+#define CLOCK_2_GPIO_Port GPIOA
+#define CLOCK_3_Pin GPIO_PIN_7
+#define CLOCK_3_GPIO_Port GPIOA
+#define CLOCK_4_Pin GPIO_PIN_8
+#define CLOCK_4_GPIO_Port GPIOA
+#define CLOCK_5_Pin GPIO_PIN_9
+#define CLOCK_5_GPIO_Port GPIOA
+#define CLOCK_6_Pin GPIO_PIN_10
+#define CLOCK_6_GPIO_Port GPIOA
+#define CLOCK_7_Pin GPIO_PIN_11
+#define CLOCK_7_GPIO_Port GPIOA
+#define CLOCK_8_Pin GPIO_PIN_12
+#define CLOCK_8_GPIO_Port GPIOA
+#define CLOCK_9_Pin GPIO_PIN_13
+#define CLOCK_9_GPIO_Port GPIOA
+#define CLOCK_10_Pin GPIO_PIN_14
+#define CLOCK_10_GPIO_Port GPIOA
+#define CLOCK_11_Pin GPIO_PIN_15
+#define CLOCK_11_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
