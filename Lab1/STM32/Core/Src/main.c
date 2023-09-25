@@ -50,6 +50,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 void clearAllClock();
 void setNumberOnClock(int num);
+void clearNumberOnClock(int num);
 
 /* USER CODE BEGIN PFP */
 
@@ -211,6 +212,10 @@ void setNumberOnClock(int num) {
 	HAL_GPIO_WritePin(clock_ports[num], clock_pins[num], RESET);
 }
 
+void clearNumberOnClock(int num) {
+	HAL_GPIO_WritePin(clock_ports[num], clock_pins[num], SET);
+}
+
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
@@ -246,3 +251,5 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
