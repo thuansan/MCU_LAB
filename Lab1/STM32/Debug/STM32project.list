@@ -195,13 +195,13 @@ int main(void)
  80001f8:	f000 f91a 	bl	8000430 <display7SEG>
  80001fc:	68bb      	ldr	r3, [r7, #8]
  80001fe:	2b03      	cmp	r3, #3
- 8000200:	d87d      	bhi.n	80002fe <main+0x1b2>
+ 8000200:	d87c      	bhi.n	80002fc <main+0x1b0>
  8000202:	a201      	add	r2, pc, #4	; (adr r2, 8000208 <main+0xbc>)
  8000204:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
  8000208:	08000219 	.word	0x08000219
  800020c:	08000259 	.word	0x08000259
  8000210:	08000283 	.word	0x08000283
- 8000214:	080002c3 	.word	0x080002c3
+ 8000214:	080002c1 	.word	0x080002c1
 	  switch (state) {
 	  	  case 0: //GREEN Vertical: ON, RED Horizontal: ON
 	  		HAL_GPIO_WritePin(LED_GREEN_VERTICAL_GPIO_Port, LED_GREEN_VERTICAL_Pin, RESET);
@@ -232,13 +232,13 @@ int main(void)
  800024a:	68fa      	ldr	r2, [r7, #12]
  800024c:	683b      	ldr	r3, [r7, #0]
  800024e:	429a      	cmp	r2, r3
- 8000250:	da4e      	bge.n	80002f0 <main+0x1a4>
+ 8000250:	da4d      	bge.n	80002ee <main+0x1a2>
 	  			state = 1;
  8000252:	2301      	movs	r3, #1
  8000254:	60bb      	str	r3, [r7, #8]
 	  		}
 	  		break;
- 8000256:	e04b      	b.n	80002f0 <main+0x1a4>
+ 8000256:	e04a      	b.n	80002ee <main+0x1a2>
 	  	  case 1: //YELLOW Vertical: ON, RED Horizontal: ON
 	  		HAL_GPIO_WritePin(LED_YELLOW_VERTICAL_GPIO_Port, LED_YELLOW_VERTICAL_Pin, RESET);
  8000258:	2200      	movs	r2, #0
@@ -257,16 +257,16 @@ int main(void)
 	  		if (led_counter < -0.01) {
  8000272:	68fb      	ldr	r3, [r7, #12]
  8000274:	2b00      	cmp	r3, #0
- 8000276:	da3d      	bge.n	80002f4 <main+0x1a8>
+ 8000276:	da3c      	bge.n	80002f2 <main+0x1a6>
 	  			state = 2;
  8000278:	2302      	movs	r3, #2
  800027a:	60bb      	str	r3, [r7, #8]
-	  			led_counter = red_timer;
- 800027c:	687b      	ldr	r3, [r7, #4]
+	  			led_counter = green_timer;
+ 800027c:	683b      	ldr	r3, [r7, #0]
  800027e:	60fb      	str	r3, [r7, #12]
 	  		}
 	  		break;
- 8000280:	e038      	b.n	80002f4 <main+0x1a8>
+ 8000280:	e037      	b.n	80002f2 <main+0x1a6>
 	  	  case 2://RED Vertical: ON, GREEN Horizontal: ON
 	  		HAL_GPIO_WritePin(LED_YELLOW_VERTICAL_GPIO_Port, LED_YELLOW_VERTICAL_Pin, SET);
  8000282:	2201      	movs	r2, #1
@@ -292,62 +292,62 @@ int main(void)
  80002ae:	68fb      	ldr	r3, [r7, #12]
  80002b0:	3b01      	subs	r3, #1
  80002b2:	60fb      	str	r3, [r7, #12]
-	  		if (led_counter < green_timer) {
- 80002b4:	68fa      	ldr	r2, [r7, #12]
- 80002b6:	683b      	ldr	r3, [r7, #0]
- 80002b8:	429a      	cmp	r2, r3
- 80002ba:	da1d      	bge.n	80002f8 <main+0x1ac>
+	  		if (led_counter <= 0) {
+ 80002b4:	68fb      	ldr	r3, [r7, #12]
+ 80002b6:	2b00      	cmp	r3, #0
+ 80002b8:	dc1d      	bgt.n	80002f6 <main+0x1aa>
 	  			state = 3;
- 80002bc:	2303      	movs	r3, #3
- 80002be:	60bb      	str	r3, [r7, #8]
+ 80002ba:	2303      	movs	r3, #3
+ 80002bc:	60bb      	str	r3, [r7, #8]
 	  		}
 	  		break;
- 80002c0:	e01a      	b.n	80002f8 <main+0x1ac>
+ 80002be:	e01a      	b.n	80002f6 <main+0x1aa>
 	  	  case 3://RED Vertical: ON, YELLOW Horizontal: ON
 	  		HAL_GPIO_WritePin(LED_YELLOW_HORIZONTAL_GPIO_Port, LED_YELLOW_HORIZONTAL_Pin , RESET);
- 80002c2:	2200      	movs	r2, #0
- 80002c4:	f44f 7100 	mov.w	r1, #512	; 0x200
- 80002c8:	480f      	ldr	r0, [pc, #60]	; (8000308 <main+0x1bc>)
- 80002ca:	f000 fdaf 	bl	8000e2c <HAL_GPIO_WritePin>
+ 80002c0:	2200      	movs	r2, #0
+ 80002c2:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 80002c6:	4810      	ldr	r0, [pc, #64]	; (8000308 <main+0x1bc>)
+ 80002c8:	f000 fdb0 	bl	8000e2c <HAL_GPIO_WritePin>
 	  		HAL_GPIO_WritePin(LED_GREEN_HORIZONTAL_GPIO_Port, LED_GREEN_HORIZONTAL_Pin, SET);
- 80002ce:	2201      	movs	r2, #1
- 80002d0:	f44f 6180 	mov.w	r1, #1024	; 0x400
- 80002d4:	480c      	ldr	r0, [pc, #48]	; (8000308 <main+0x1bc>)
- 80002d6:	f000 fda9 	bl	8000e2c <HAL_GPIO_WritePin>
+ 80002cc:	2201      	movs	r2, #1
+ 80002ce:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 80002d2:	480d      	ldr	r0, [pc, #52]	; (8000308 <main+0x1bc>)
+ 80002d4:	f000 fdaa 	bl	8000e2c <HAL_GPIO_WritePin>
 	  		led_counter--;
- 80002da:	68fb      	ldr	r3, [r7, #12]
- 80002dc:	3b01      	subs	r3, #1
- 80002de:	60fb      	str	r3, [r7, #12]
+ 80002d8:	68fb      	ldr	r3, [r7, #12]
+ 80002da:	3b01      	subs	r3, #1
+ 80002dc:	60fb      	str	r3, [r7, #12]
 	  		if (led_counter < -0.01) {
- 80002e0:	68fb      	ldr	r3, [r7, #12]
- 80002e2:	2b00      	cmp	r3, #0
- 80002e4:	da0a      	bge.n	80002fc <main+0x1b0>
+ 80002de:	68fb      	ldr	r3, [r7, #12]
+ 80002e0:	2b00      	cmp	r3, #0
+ 80002e2:	da0a      	bge.n	80002fa <main+0x1ae>
 	  			state = 0;
- 80002e6:	2300      	movs	r3, #0
- 80002e8:	60bb      	str	r3, [r7, #8]
+ 80002e4:	2300      	movs	r3, #0
+ 80002e6:	60bb      	str	r3, [r7, #8]
 	  			led_counter = red_timer;
- 80002ea:	687b      	ldr	r3, [r7, #4]
- 80002ec:	60fb      	str	r3, [r7, #12]
+ 80002e8:	687b      	ldr	r3, [r7, #4]
+ 80002ea:	60fb      	str	r3, [r7, #12]
 	  		}
 	  		break;
- 80002ee:	e005      	b.n	80002fc <main+0x1b0>
+ 80002ec:	e005      	b.n	80002fa <main+0x1ae>
 	  		break;
- 80002f0:	bf00      	nop
- 80002f2:	e004      	b.n	80002fe <main+0x1b2>
+ 80002ee:	bf00      	nop
+ 80002f0:	e004      	b.n	80002fc <main+0x1b0>
 	  		break;
- 80002f4:	bf00      	nop
- 80002f6:	e002      	b.n	80002fe <main+0x1b2>
+ 80002f2:	bf00      	nop
+ 80002f4:	e002      	b.n	80002fc <main+0x1b0>
 	  		break;
- 80002f8:	bf00      	nop
- 80002fa:	e000      	b.n	80002fe <main+0x1b2>
+ 80002f6:	bf00      	nop
+ 80002f8:	e000      	b.n	80002fc <main+0x1b0>
 	  		break;
- 80002fc:	bf00      	nop
+ 80002fa:	bf00      	nop
 	  }
 	  HAL_Delay(1000);
- 80002fe:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 8000302:	f000 fb11 	bl	8000928 <HAL_Delay>
+ 80002fc:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
+ 8000300:	f000 fb12 	bl	8000928 <HAL_Delay>
 	  display7SEG(led_counter);
- 8000306:	e776      	b.n	80001f6 <main+0xaa>
+ 8000304:	e777      	b.n	80001f6 <main+0xaa>
+ 8000306:	bf00      	nop
  8000308:	40010800 	.word	0x40010800
  800030c:	40010c00 	.word	0x40010c00
 

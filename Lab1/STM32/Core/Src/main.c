@@ -128,7 +128,7 @@ int main(void)
 	  		led_counter--;
 	  		if (led_counter < -0.01) {
 	  			state = 2;
-	  			led_counter = red_timer;
+	  			led_counter = green_timer;
 	  		}
 	  		break;
 	  	  case 2://RED Vertical: ON, GREEN Horizontal: ON
@@ -137,7 +137,7 @@ int main(void)
 	  		HAL_GPIO_WritePin(LED_GREEN_HORIZONTAL_GPIO_Port, LED_GREEN_HORIZONTAL_Pin, RESET);
 	  		HAL_GPIO_WritePin(LED_RED_HORIZONTAL_GPIO_Port, LED_RED_HORIZONTAL_Pin, SET);
 	  		led_counter--;
-	  		if (led_counter < green_timer) {
+	  		if (led_counter <= 0) {
 	  			state = 3;
 	  		}
 	  		break;
