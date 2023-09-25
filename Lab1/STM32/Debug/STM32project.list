@@ -190,11 +190,12 @@ int main(void)
  80001da:	1ad1      	subs	r1, r2, r3
  80001dc:	4608      	mov	r0, r1
  80001de:	f000 f89b 	bl	8000318 <setNumberOnClock>
-	  HAL_Delay(1000);
- 80001e2:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 80001e6:	f000 f99d 	bl	8000524 <HAL_Delay>
+	  HAL_Delay(50);
+ 80001e2:	2032      	movs	r0, #50	; 0x32
+ 80001e4:	f000 f99e 	bl	8000524 <HAL_Delay>
 	  if (second == 60) {
- 80001ea:	e7be      	b.n	800016a <main+0x1e>
+ 80001e8:	e7bf      	b.n	800016a <main+0x1e>
+ 80001ea:	bf00      	nop
  80001ec:	66666667 	.word	0x66666667
  80001f0:	2aaaaaab 	.word	0x2aaaaaab
 

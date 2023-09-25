@@ -140,7 +140,7 @@ int main(void)
 	  setNumberOnClock(second++ / 5);
 	  setNumberOnClock(minute / 5);
 	  setNumberOnClock(hour % 12);
-	  HAL_Delay(1000);
+	  HAL_Delay(50);
   }
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
