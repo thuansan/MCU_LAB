@@ -86,7 +86,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
+      HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
       HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, SET);
       HAL_GPIO_WritePin(Led_yellow_GPIO_Port, Led_yellow_Pin, SET);
     /* USER CODE END 2 */
